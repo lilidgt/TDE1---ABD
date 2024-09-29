@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cinema -TDE ABD</title>
+  </head>
+  <body>
+    <nav>
+      <div>
+        <a href="{{url_for('home')}}">CINEMA</a>
+        <div id="navbarNav">
+          <ul>
+            <li>
+              <a href="{{url_for('home')}}">Home</a>
+            </li>
+            <li>
+              <a href="{{url_for('filmes')}}">Filmes</a>
+            </li>
+            <li>
+              <a href="{{url_for('salas')}}">Salas</a>
+            </li>
+            <li>
+              <a href="{{url_for('sessoes')}}">Sessões</a>
+            </li>
+            <li>
+              <a href="{{url_for('clientes')}}">Clientes</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div>
+      {% block content %} {% endblock %}
+    </div>
+  </body>
+</html>

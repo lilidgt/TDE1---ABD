@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Lista de Sessões</h1>
+{% if lista_sessoes %}
+<table>
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Data</th>
+        <th scope="col">Horário</th>
+        <th scope="col">Filme</th>
+        <th scope="col">Sala</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+        
+    <tbody>
+    {% for sessao in lista_sessoes %}
+      <tr>
+        <td>{{ sessao.id_sessao }}</td>
+        <td>{{ sessao.data }}</td>
+        <td>{{ sessao.horario }}</td>
+        <td>{{ sessao.filme.titulo }}</td>
+        <td>{{ sessao.sala.nome }}</td>
+        <td><a href="{{ url_for('update_sessao', sessao_id=sessao.id_sessao) }}"><button>Editar</button></a></td>
+        <td><a href="{{ url_for('delete_sessao', sessao_id=sessao.id_sessao) }}"><button>Excluir</button></a></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+        <p>Sem sessões registradas!</p>
+{% endif %}
+  <a href="{{url_for('add_sessao')}}"><button type="button">Incluir Sessão</button></a>
+{% endblock %}

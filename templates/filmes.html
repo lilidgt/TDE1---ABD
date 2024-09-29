@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Lista de Filmes</h1>
+{% if lista_filmes %}
+<table>
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Titulo</th>
+        <th scope="col">Classificação</th>
+        <th scope="col">Gênero</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+        
+    <tbody>
+    {% for filme in lista_filmes %}
+      <tr>
+        <td>{{ filme.id_filme }}</td>
+        <td>{{ filme.titulo }}</td>
+        <td>{{ filme.classificacao }}</td>
+        <td>{{ filme.genero }}</td>
+        <td><a href="{{ url_for('update_filme', filme_id=filme.id_filme) }}"><button>Editar</button></a></td>
+        <td><a href="{{ url_for('delete_filme', filme_id=filme.id_filme) }}"><button>Excluir</button></a></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+        <p>Sem filmes registrados!</p>
+{% endif %}
+  <a href="{{url_for('add_filme')}}"><button type="button">Incluir Filme</button></a>
+{% endblock %}

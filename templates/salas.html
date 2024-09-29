@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Lista de Salas</h1>
+{% if lista_salas %}
+<table>
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Capacidade</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+        
+    <tbody>
+    {% for sala in lista_salas %}
+      <tr>
+        <td>{{ sala.id_sala }}</td>
+        <td>{{ sala.nome }}</td>
+        <td>{{ sala.capacidade }}</td>
+        <td><a href="{{ url_for('update_sala', sala_id=sala.id_sala) }}"><button>Editar</button></a></td>
+        <td><a href="{{ url_for('delete_sala', sala_id=sala.id_sala) }}"><button>Excluir</button></a></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+        <p>Sem salas registradas!</p>
+{% endif %}
+  <a href="{{url_for('add_sala')}}"><button type="button">Incluir Sala</button></a>
+{% endblock %}

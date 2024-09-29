@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<div>
+    <h1>Editar Sessão:</h1>
+    <form method="POST" action="/update_sessao/{{ sessao.id_sessao }}">
+        <div>
+            <label for="data">Dia/Mês/Ano</label>
+            <input type="date" id="data" name="data" value="{{ sessao.data }}" required>
+        </div>
+        <div>
+            <label for="horario">Horário</label>
+            <input type="time" id="horario" name="horario" value="{{ sessao.horario }}" required>
+        </div>
+        <div>
+            <label for="filme">Filme</label>
+            <input type="text" id="filme" name="filme" value="{{ sessao.filme.titulo }}" required>
+        </div>
+        <div class="form-group">
+            <label for="sala">Sala</label>
+            <input type="text" id="sala" name="sala" value="{{ sessao.sala.nome }}" required>
+        </div>
+        <br>
+        <button type="submit">Editar</button>
+    </form>
+    <p>
+        Edite a Sessão.
+    </p>
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Lista de Clientes</h1>
+{% if lista_clientes %}
+<table>
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Email</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+        
+    <tbody>
+    {% for cliente in lista_clientes %}
+      <tr>
+        <td>{{ cliente.id_cliente }}</td>
+        <td>{{ cliente.nome }}</td>
+        <td>{{ cliente.email }}</td>
+        <td><a href="{{ url_for('update_cliente', cliente_id=cliente.id_cliente) }}"><button>Editar</button></a></td>
+        <td><a href="{{ url_for('delete_cliente', cliente_id=cliente.id_cliente) }}"><button>Excluir</button></a></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+        <p>Sem clientes registrados!</p>
+{% endif %}
+  <a href="{{url_for('add_cliente')}}"><button type="button">Incluir Cliente</button></a>
+{% endblock %}

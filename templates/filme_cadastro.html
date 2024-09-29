@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<div>
+    <h1>Registro de Filme</h1>
+    <form method="POST" action="/add_filme">
+        <div>
+            <label for="titulo">Título</label>
+            <input type="text" id="titulo" name="titulo" required>
+        </div>
+        <div>
+            <label for="classificacao">Classificação</label>
+            <input type="text" id="classificacao" name="classificacao" required>
+        </div>
+        <div>
+            <label for="genero">Gênero</label>
+            <input type="text" id="genero" name="genero" required>
+        </div>
+    </br>
+        <button type="submit">Registrar</button>
+    </form>
+    <p>
+        Registre um novo filme.
+    </p>
+</div>
+{% endblock %}

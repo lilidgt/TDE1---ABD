@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<div>
+    <h1>Registro de Sessão</h1>
+    <form method="POST" action="/add_sessao">
+        <div class="form-group">
+            <label for="data">Data (Dia/Mês/Ano)</label>
+            <input type="date" id="data" name="data" required>
+        </div>
+        <div class="form-group">
+            <label for="horario">Horário</label>
+            <input type="time" id="horario" name="horario" required>
+        </div>
+        <div class="form-group">
+            <label for="filme">Filme</label>
+            <input type="text" id="filme" name="filme" required>
+        </div>
+        <div class="form-group">
+            <label for="sala">Sala</label>
+            <input type="text" id="sala" name="sala" required>
+        </div>
+
+        <br/>
+        <button type="submit">Registrar</button>
+    </form>
+    <p>Registre uma nova sessão.</p>
+</div>
+{% endblock %}
